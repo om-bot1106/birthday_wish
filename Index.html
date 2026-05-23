@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Surprise! 🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Load Confetti Library -->
+  <script src="https://jsdelivr.net"></script>
+</head>
+<body>
+
+  <!-- SCREEN 1: Welcome & Moving No Button -->
+  <div id="screen1" class="screen active">
+    <!-- EDIT THESE TWO LINES BELOW -->
+    <h1 class="main-title">Happy Birthday, Harshitaa! ❤️</h1>
+    <h2 class="date-badge">📅 Special Day: 6th June,2026</h2>
+    
+    <p class="prompt-text">Is it finally time to unlock your surprise?</p>
+    <div class="btn-group">
+      <button id="yesBtn" onclick="nextScreen(1, 2)">Yes! 🎉</button>
+      <button id="noBtn">No 😢</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: Multiple Choice Options -->
+  <div id="screen2" class="screen">
+    <h1>How do you want to celebrate today? ✨</h1>
+    <div class="options-grid">
+      <button class="opt-btn" onclick="selectOption('Cake 🎂')">Eat lots of cake</button>
+      <button class="opt-btn" onclick="selectOption('Party 🥳')">Party all night</button>
+      <button class="opt-btn" onclick="selectOption('Gifts 🎁')">Open presents</button>
+      <button class="opt-btn" onclick="selectOption('Sleep 😴')">Sleep all day</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: Balloon Pop Game -->
+  <div id="screen3" class="screen">
+    <h1>Pop 5 balloons to unlock your surprise! 🎈</h1>
+    <p class="counter">Popped: <span id="popCount">0</span>/5</p>
+    <div id="balloon-container"></div>
+  </div>
+
+  <!-- SCREEN 4: NEW Congrats Screen -->
+  <div id="screen4" class="screen">
+    <h1 class="congrats-title">🎉 Amazing Job! 🎉</h1>
+    <p class="congrats-text">You successfully popped them all! Your virtual birthday cake is ready. Let's make a wish!</p>
+    <button class="continue-btn" onclick="nextScreen(4, 5)">Bring Out The Cake! 🎂</button>
+  </div>
+
+  
+     <!-- SCREEN 5: 3-Story Cake & Candle Blowing -->
+  <div id="screen5" class="screen">
+    <h1>Make a Wish! 🕯️</h1>
+    
+    <!-- Secret Wish Input Box -->
+    <div class="wish-input-box">
+      <input type="text" id="secretWishInput" placeholder="Type your secret wish here...">
+    </div>
+    
+    <!-- 3-Story Cake Container -->
+    <div class="cake-container">
+      <div class="candles-row">
+        <!-- We added IDs directly to the flames -->
+        <div class="candle c1"><div class="flame" id="flame1"></div></div>
+        <div class="candle c2"><div class="flame" id="flame2"></div></div>
+        <div class="candle c3"><div class="flame" id="flame3"></div></div>
+      </div>
+      <div class="cake-tier tier-top"></div>
+      <div class="cake-tier tier-middle"></div>
+      <div class="cake-tier tier-bottom"></div>
+    </div>
+
+    <!-- The Action Button -->
+    <button class="continue-btn" style="margin-top: 30px;" onclick="processWish()">Blow Out Candles! 💨</button>
+  </div>
+
+
+
+  <!-- SCREEN 6: Sweet Letter Screen -->
+  <div id="screen6" class="screen">
+    <div class="letter-card">
+      <div class="heart-icon">💖</div>
+      <h2>To Someone Incredibly Special,</h2>
+      <p id="dynamic-message" class="dynamic-note"></p>
+      
+      <!-- EDIT YOUR SWEET LETTER HERE -->
+      <div class="letter-content">
+        <p>Happy Birthday! Today is all about celebrating you and the incredible joy you bring into the world. You have this amazing ability to lift everyone up around you, and I am so grateful to have you in my life.</p>
+        <p>May this year bring you closer to your biggest dreams, fill your days with endless laughter, and shower you with all the happiness you deserve. You are deeply appreciated, today and every single day.</p>
+        <p class="signature">With love and best wishes, <br><strong>Indra</strong></p>
+      </div>
+      
+      <button class="continue-btn" onclick="nextScreen(6, 7)">Click for your final gift! 🎁</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 7: Gift Reveal -->
+  <div id="screen7" class="screen">
+    <div class="gift-wrap">
+      <h1>Your Final Birthday Box! 🎁</h1>
+      <div id="gift-box" onclick="openGift()">🎁</div>
+      
+      <div id="final-surprise" class="hidden">
+        <div class="coupon-card">
+          <h3>✨ OFFICIAL BIRTHDAY VOUCHER ✨</h3>
+          <p class="coupon-details">Good for one fun day out, coffee, or favorite dinner on me!</p>
+          <span class="coupon-code">CODE: BEST-FRIEND-EVER</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

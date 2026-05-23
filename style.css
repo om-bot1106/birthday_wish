@@ -1,0 +1,324 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.screen.active {
+  display: flex;
+}
+
+h1, h2 {
+  color: #fb6f92;
+  margin-bottom: 15px;
+}
+
+.date-badge {
+  background-color: white;
+  color: #ff758f;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.prompt-text {
+  margin-top: 20px;
+  color: #666;
+  font-size: 18px;
+}
+
+/* Moving Button Area */
+.btn-group {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#yesBtn, .continue-btn {
+  background-color: #ff758f;
+  color: white;
+}
+
+#yesBtn {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#noBtn {
+  background-color: #f8ad9d;
+  color: white;
+  position: absolute;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+}
+
+/* Options Screen */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+}
+
+.opt-btn {
+  background: white;
+  color: #ff758f;
+  border: 2px solid #ffb3c1;
+}
+
+.opt-btn:hover {
+  background: #ffb3c1;
+  color: white;
+}
+
+/* Balloon Game */
+#balloon-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.balloon {
+  position: absolute;
+  width: 45px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  cursor: pointer;
+  animation: floatUp 3.5s linear infinite;
+  bottom: -70px;
+}
+
+/* 3-Story Cake Styling */
+.cake-container {
+  position: relative;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.cake-tier {
+  border-radius: 12px 12px 0 0;
+  box-shadow: inset 0 -10px 0 rgba(0,0,0,0.05);
+}
+
+.tier-bottom {
+  width: 220px;
+  height: 70px;
+  background: #ff8fa3;
+  border-bottom: 8px solid #ff758f;
+}
+
+.tier-middle {
+  width: 170px;
+  height: 55px;
+  background: #ffb3c1;
+  border-bottom: 6px solid #ff8fa3;
+}
+
+.tier-top {
+  width: 120px;
+  height: 45px;
+  background: #ffe5ec;
+  border-bottom: 6px solid #ffb3c1;
+}
+
+/* Multi-Candles */
+.candles-row {
+  display: flex;
+  justify-content: space-around;
+  width: 90px;
+  position: absolute;
+  top: -25px;
+  z-index: 10;
+}
+
+.candle {
+  width: 8px;
+  height: 25px;
+  background: linear-gradient(to right, #ffccd5, #fff);
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 15px;
+  background: #ff9f1c;
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 8px #ff9f1c;
+  cursor: pointer;
+  animation: flicker 0.1s infinite alternate;
+}
+
+/* Sweet Letter Card */
+.letter-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.heart-icon {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: pulse 1s infinite alternate;
+}
+
+.dynamic-note {
+  font-style: italic;
+  color: #ff758f;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.letter-content p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 20px;
+  color: #333;
+}
+
+.continue-btn {
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* Gift Area */
+#gift-box {
+  font-size: 90px;
+  cursor: pointer;
+  margin: 30px 0;
+  display: inline-block;
+  animation: bounce 0.8s infinite alternate;
+}
+
+.coupon-card {
+  background: linear-gradient(135deg, #ffe5ec, white);
+  border: 3px dashed #ff758f;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.coupon-details {
+  font-size: 16px;
+  margin: 15px 0;
+  color: #444;
+}
+
+.coupon-code {
+  font-family: monospace;
+  background: #ff758f;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.hidden { display: none; }
+
+/* Dynamic Animations */
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes flicker { from { transform: translateX(-50%) scale(1); } to { transform: translateX(-50%) scale(1.15); } }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.2); } }
+@keyframes floatUp {
+  0% { bottom: -70px; transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { bottom: 320px; transform: translateX(-15px); }
+
+/* Custom rule to instantly hide the flame when clicked */
+}
+.flame.blown-out {
+  display: none !important;
+}
+/* Wish Input Area */
+.wish-input-box {
+  margin-bottom: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#secretWishInput {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #ffb3c1;
+  border-radius: 20px;
+  outline: none;
+  text-align: center;
+  color: #555;
+  transition: border-color 0.3s;
+}
+
+#secretWishInput:focus {
+  border-color: #ff758f;
+  box-shadow: 0 0 8px rgba(255, 117, 143, 0.2);
+}
+
+.wish-btn {
+  background-color: #ff758f;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.wish-btn:hover {
+  background-color: #ff4d6d;
+}
+
